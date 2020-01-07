@@ -52,7 +52,8 @@ class _MiembroHapa extends State<MiembroHapa> {
         if(!snapshot.hasData || snapshot.hasError){
           return signInGoogleUI();
         }else{
-          return HapaHome();
+          return ProfilePage('Cuando recuperes o descubras algo que alimenta tu alma y te trae  alegría, encargate de quererte lo suficiente y hazle un espacio en tu vida (Jean Shinoda Bolen)', 'assets/images/background1.png');
+        
         }
       },
     );
