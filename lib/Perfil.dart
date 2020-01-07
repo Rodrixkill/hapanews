@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hapa/SideMenu.dart';
+import 'package:hapaprueba/SideMenu.dart';
 import 'profilePage.dart';
 
 class Perfil extends StatelessWidget {
@@ -20,10 +20,10 @@ class Perfil extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
-        backgroundColor: Color.fromRGBO(243, 240, 210, 0.8),
+      backgroundColor: Color.fromRGBO(243, 240, 210, 20), //TODO Cambiar color de fondo
         appBar: topBar,
         drawer: new SideMenu(),
-        body: ProfilePage('Actriz', 'Alejandra Picon', 'Cuando recuperes o descubras algo que alimenta tu alma y te trae  alegría, encargate de quererte lo suficiente y hazle un espacio en tu vida (Jean Shinoda Bolen)', 'assets/images/background1.png',"assets/images/prof1.png")
+        body: ProfilePage('Cuando recuperes o descubras algo que alimenta tu alma y te trae  alegría, encargate de quererte lo suficiente y hazle un espacio en tu vida (Jean Shinoda Bolen)', 'assets/images/background1.png')
     );
   }
 }

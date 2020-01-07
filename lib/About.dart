@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hapa/SideMenu.dart';
+import 'package:hapaprueba/SideMenu.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class About extends StatelessWidget {
@@ -37,9 +37,8 @@ class About extends StatelessWidget {
         'Sobre Nosotros',
         style: TextStyle(
           fontFamily: "Lato",
-          fontSize: 25.0,
+          fontSize: 23.0,
           fontWeight: FontWeight.w900,
-          color: Colors.white
         ),
         textAlign: TextAlign.left,
       ),
@@ -54,37 +53,28 @@ class About extends StatelessWidget {
     final descriptionField1 = Container(
       margin: new EdgeInsets.only(
         top: 5.0,
-        right: 20.0,
-        left: 20.0,
+        right: 0.0,
+        left: 0.0,
       ),
       constraints: BoxConstraints(
-        maxWidth: 330
+          maxWidth:180
       ),
       child: new Text(
         pactuar,
         style: const TextStyle(
-            fontSize: 16.0,
+            fontSize: 14.0,
             fontWeight: FontWeight.bold,
-            color: Colors.white
+            color: Color(0xff56575a)
         ),
-        textAlign: TextAlign.center
+        textAlign: TextAlign.justify
       ),
-      alignment: Alignment.centerLeft,
     );
-    final container1= new Container(
-      decoration: BoxDecoration(
-          image: DecorationImage(
-            fit: BoxFit.fill,
-            image: AssetImage("assets/images/other1.png"),
-          )
-      ),
-      child: Column(
-        children: <Widget>[
-          title1,
-          descriptionField1,
-          divider(),
-        ],
-      )
+    final row1= Row(
+      mainAxisAlignment: MainAxisAlignment.spaceAround,
+      children: <Widget>[
+        descriptionField1,
+        descriptionField1
+      ],
     );
     //PARTR 2
     final title2 = new Container(
@@ -92,9 +82,8 @@ class About extends StatelessWidget {
         'Programa de Actuación',
         style: TextStyle(
           fontFamily: "Lato",
-          fontSize: 25.0,
+          fontSize: 23.0,
           fontWeight: FontWeight.w900,
-            color: Colors.white
         ),
         textAlign: TextAlign.left,
       ),
@@ -109,37 +98,28 @@ class About extends StatelessWidget {
     final descriptionField2 = Container(
       margin: new EdgeInsets.only(
         top: 5.0,
-        right: 20.0,
-        left: 20.0,
+        right: 0.0,
+        left: 0.0,
       ),
       constraints: BoxConstraints(
-        maxWidth: 220,
+          maxWidth:180
       ),
       child: new Text(
           programa,
           style: const TextStyle(
-              fontSize: 16.0,
+              fontSize: 14.0,
               fontWeight: FontWeight.bold,
-              color: Colors.white
+              color: Color(0xff56575a)
           ),
-          textAlign: TextAlign.center
+          textAlign: TextAlign.justify
       ),
-
     );
-    final container2= new Container(
-        decoration: BoxDecoration(
-            image: DecorationImage(
-              fit: BoxFit.fill,
-              image: AssetImage("assets/images/dance1.png"),
-            )
-        ),
-        child: Column(
-          children: <Widget>[
-            title2,
-            descriptionField2,
-            divider(),
-          ],
-        )
+    final row2= Row(
+      mainAxisAlignment: MainAxisAlignment.spaceAround,
+      children: <Widget>[
+        descriptionField2,
+        descriptionField2
+      ],
     );
     //PARTE 3
     final title3 = new Container(
@@ -147,9 +127,8 @@ class About extends StatelessWidget {
         'Audiciones',
         style: TextStyle(
           fontFamily: "Lato",
-          fontSize: 25.0,
+          fontSize: 23.0,
           fontWeight: FontWeight.w900,
-            color: Colors.white
         ),
         textAlign: TextAlign.left,
       ),
@@ -164,42 +143,39 @@ class About extends StatelessWidget {
     final descriptionField3 = Container(
       margin: new EdgeInsets.only(
         top: 5.0,
-        right: 20.0,
-        left: 20.0,
+        right: 0.0,
+        left: 0.0,
+      ),
+      constraints: BoxConstraints(
+          maxWidth:180
       ),
       child: new Text(
           audicion,
           style: const TextStyle(
-              fontSize: 16.0,
+              fontSize: 14.0,
               fontWeight: FontWeight.bold,
-              color: Colors.white
+              color: Color(0xff56575a)
           ),
-          textAlign: TextAlign.justify,
+          textAlign: TextAlign.justify
       ),
-      alignment: Alignment.centerLeft,
     );
-    final container3= new Container(
-        decoration: BoxDecoration(
-            image: DecorationImage(
-              fit: BoxFit.fill,
-              image: AssetImage("assets/images/movie1.png"),
-            )
-        ),
-        child: Column(
-          children: <Widget>[
-            title3,
-            descriptionField3,
-            divider(),
-            url
-          ],
-        )
+    final row3= Row(
+      mainAxisAlignment: MainAxisAlignment.spaceAround,
+      children: <Widget>[
+        descriptionField3,
+        descriptionField3
+      ],
     );
 
     final text = new Column(
       children: <Widget>[
-        container1,
-        container2,
-        container3,
+        title1,
+        row1,
+        title2,
+        row2,
+        title3,
+        row3,
+        url
       ],
     );
     return new Scaffold(
@@ -224,8 +200,5 @@ class About extends StatelessWidget {
     } else {
       throw 'No se pudo conectar a $url';
     }
-  }
-  Divider divider(){
-    return Divider(height: 25,);
   }
 }

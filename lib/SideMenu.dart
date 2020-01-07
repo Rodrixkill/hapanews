@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hapa/HapaHome.dart';
+import 'package:hapaprueba/HapaHome.dart';
 import 'Anunciar.dart';
 import 'About.dart';
 import 'MiembroHapa.dart';
@@ -8,25 +8,25 @@ import 'Perfil.dart';
 
 class SideMenu extends StatelessWidget{
   final textStyle = TextStyle(
-    fontSize: 20.0,
-    fontWeight: FontWeight.w500,
-    color: Color.fromRGBO(98, 86, 86, 1)
+      fontSize: 20.0,
+      fontWeight: FontWeight.w500,
+      color: Color.fromRGBO(98, 86, 86, 1)
   );
   @override
   Widget build(BuildContext context) {
     return Theme(
 
         data: Theme.of(context).copyWith(
-      //other styles
+          //other styles
         ),
-      child: new Drawer(
-        child: container(context),
+        child: new Drawer(
+          child: container(context),
 
-      )
+        )
     );
-    }
-    Container container(context){
-      return new Container(
+  }
+  Container container(context){
+    return new Container(
         color: new Color.fromRGBO(243, 240, 210, 20),
         child: new ListView(
 
@@ -91,7 +91,7 @@ class SideMenu extends StatelessWidget{
             )
           ],
         )
-      );
-    }
+    );
+  }
 
 }

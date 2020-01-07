@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hapaprueba/NewsPage.dart';
 
 class News extends StatelessWidget {
 
@@ -68,13 +69,16 @@ class News extends StatelessWidget {
       ),
     );
 
-    //Noticias individuales
-    final noticia = Column(
-
-    );
 
 
-    return Column(
+
+    return GestureDetector(
+        // Cuando el hijo reciba un tap, muestra un snackbar
+        onTap: () {
+          Navigator.of(context).pop();
+          Navigator.of(context).push(new MaterialPageRoute(builder: (BuildContext context)=> new NewsPage(img, titulo)));
+    },
+      child: Column(
       mainAxisAlignment: MainAxisAlignment.start,
       children: <Widget>[
         barra,
@@ -82,6 +86,7 @@ class News extends StatelessWidget {
         title,
         descriptionField
       ],
+      )
     );
   }
 }
