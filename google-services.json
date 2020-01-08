@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "990569144549",
+    "firebase_url": "https://noticiashapa-107a9.firebaseio.com",
+    "project_id": "noticiashapa-107a9",
+    "storage_bucket": "noticiashapa-107a9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:990569144549:android:e34c521b4a2976a17cb40c",
+        "android_client_info": {
+          "package_name": "com.hapa.hapa"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "990569144549-fbs2g8f51t5mh95u7a4q0p3o74p1sag2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.hapa.hapa",
+            "certificate_hash": "d3662777ecbd2082db594f5883f4fdca1383c6ee"
+          }
+        },
+        {
+          "client_id": "990569144549-h3hfelm6rdmb0ohqbm237san6r35ps3o.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCF4kqU7BRpaWfiFzetkrwkR9EkQuz51YA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "990569144549-h3hfelm6rdmb0ohqbm237san6r35ps3o.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
