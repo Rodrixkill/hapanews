@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hapaprueba/NewsPage.dart';
+import 'package:hapa/NewsPage.dart';
 
 class News extends StatelessWidget {
 

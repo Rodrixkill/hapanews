@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hapaprueba/SideMenu.dart';
+import 'package:hapa/SideMenu.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class About extends StatelessWidget {

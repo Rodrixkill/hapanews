@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:generic_bloc_provider/generic_bloc_provider.dart';
-import 'package:hapaprueba/bloc_user.dart';
-import 'package:hapaprueba/circle_button.dart';
+import 'package:hapa/bloc_user.dart';
+import 'package:hapa/circle_button.dart';
 
 class ProfilePage extends StatelessWidget{
   String backgroundPic = "assets/images/background1.png";

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:hapaprueba/SideMenu.dart';
-import 'package:hapaprueba/newsList.dart';
+import 'package:hapa/SideMenu.dart';
+import 'package:hapa/newsList.dart';
 
 class HapaHome extends StatelessWidget {
   final topBar = new AppBar(

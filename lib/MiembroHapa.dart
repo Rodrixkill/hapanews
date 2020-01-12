@@ -1,10 +1,11 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:generic_bloc_provider/generic_bloc_provider.dart';
-import 'package:hapaprueba/HapaHome.dart';
-import 'package:hapaprueba/SideMenu.dart';
-import 'package:hapaprueba/main.dart';
+import 'package:hapa/HapaHome.dart';
+import 'package:hapa/SideMenu.dart';
+import 'package:hapa/main.dart';
 import 'bloc_user.dart';
+import 'profilePage.dart';
 
 class MiembroHapa extends StatefulWidget {
   @override

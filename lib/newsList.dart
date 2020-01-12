@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hapaprueba/news.dart';
+import 'package:hapa/news.dart';
 
 class NewsList extends StatelessWidget{
 

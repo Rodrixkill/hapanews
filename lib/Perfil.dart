@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hapaprueba/SideMenu.dart';
+import 'package:hapa/SideMenu.dart';
 import 'profilePage.dart';
 
 class Perfil extends StatelessWidget {
