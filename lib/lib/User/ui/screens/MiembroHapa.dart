@@ -4,6 +4,7 @@ import 'package:generic_bloc_provider/generic_bloc_provider.dart';
 import 'package:hapaprueba/News/ui/screens/HapaHome.dart';
 import 'package:hapaprueba/News/ui/screens/SideMenu.dart';
 import 'package:hapaprueba/News/ui/screens/main.dart';
+import 'package:hapaprueba/User/model/user.dart';
 import 'package:hapaprueba/User/ui/screens/profilePage.dart';
 import '../../bloc/bloc_user.dart';
 
@@ -23,8 +24,7 @@ final topBar = new AppBar(
       height: 35.0, child: Image.asset("assets/images/hapa1.png")),
   actions: <Widget>[
     Padding(
-      padding: const EdgeInsets.only(right: 12.0),
-      child: Icon(Icons.send),
+      padding: const EdgeInsets.only(right: 12.0)
     )
   ],
 );
@@ -53,6 +53,7 @@ class _MiembroHapa extends State<MiembroHapa> {
         if(!snapshot.hasData || snapshot.hasError){
           return signInGoogleUI();
         }else{
+          Navigator.pop(context);
           return ProfilePage('Cuando recuperes o descubras algo que alimenta tu alma y te trae  alegría, encargate de quererte lo suficiente y hazle un espacio en tu vida (Jean Shinoda Bolen)', 'assets/images/background1.png');
         }
       },
@@ -91,7 +92,14 @@ class _MiembroHapa extends State<MiembroHapa> {
       splashColor: Colors.grey,
       onPressed: () {
         userBloc.signOut();
-        userBloc.signIn().then((FirebaseUser user) => print("El usuario es ${user.displayName}"));
+        userBloc.signIn().then((FirebaseUser user) {
+          userBloc.updateUserData(User(
+            uid: user.uid,
+            name: user.displayName,
+            email: user.email,
+            photoURL: user.photoUrl,
+          ));
+        });
       },
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(40)),
       highlightElevation: 0,

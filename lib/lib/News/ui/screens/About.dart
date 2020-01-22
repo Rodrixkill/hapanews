@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:hapaprueba/News/ui/screens/SideMenu.dart';
+import 'package:flutter/painting.dart';
 import 'package:url_launcher/url_launcher.dart';
+
+import 'SideMenu.dart';
 
 class About extends StatelessWidget {
   final topBar = new AppBar(
@@ -12,7 +14,7 @@ class About extends StatelessWidget {
     actions: <Widget>[
       Padding(
         padding: const EdgeInsets.only(right: 12.0),
-        child: Icon(Icons.send),
+
       )
     ],
   );
@@ -27,6 +29,7 @@ class About extends StatelessWidget {
         "El programa es una CAPACITACIÓN que tiene una duración de 15 módulos que son facilitados por actores destacados de Bolivia. Conecta tres ciudades: La Paz, Santa Cruz y Cochabamba además de contar con la presencia virtual de actores de Hollywood mensualmente.";
     final url = Center(
       child: RaisedButton(
+        color: Color.fromRGBO(230, 153, 0,1),
         onPressed: _launchURL,
         child: Text('Ir a --> academyhapa.com'),
       ),
@@ -57,22 +60,21 @@ class About extends StatelessWidget {
         left: 0.0,
       ),
       constraints: BoxConstraints(
-          maxWidth:180
+          maxWidth:360
       ),
       child: new Text(
-        pactuar,
-        style: const TextStyle(
-            fontSize: 14.0,
-            fontWeight: FontWeight.bold,
-            color: Color(0xff56575a)
-        ),
-        textAlign: TextAlign.justify
+          pactuar,
+          style: const TextStyle(
+              fontSize: 14.0,
+              fontWeight: FontWeight.bold,
+              color: Color(0xff56575a)
+          ),
+          textAlign: TextAlign.justify
       ),
     );
     final row1= Row(
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: <Widget>[
-        descriptionField1,
         descriptionField1
       ],
     );
@@ -102,7 +104,7 @@ class About extends StatelessWidget {
         left: 0.0,
       ),
       constraints: BoxConstraints(
-          maxWidth:180
+          maxWidth:360
       ),
       child: new Text(
           programa,
@@ -117,7 +119,6 @@ class About extends StatelessWidget {
     final row2= Row(
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: <Widget>[
-        descriptionField2,
         descriptionField2
       ],
     );
@@ -147,7 +148,7 @@ class About extends StatelessWidget {
         left: 0.0,
       ),
       constraints: BoxConstraints(
-          maxWidth:180
+          maxWidth:360
       ),
       child: new Text(
           audicion,
@@ -163,7 +164,6 @@ class About extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: <Widget>[
         descriptionField3,
-        descriptionField3
       ],
     );
 
@@ -179,6 +179,7 @@ class About extends StatelessWidget {
       ],
     );
     return new Scaffold(
+
       appBar: topBar,
       drawer: new SideMenu(),
       body: Stack(

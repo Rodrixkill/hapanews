@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:generic_bloc_provider/generic_bloc_provider.dart';
 import 'package:hapaprueba/News/ui/screens/HapaHome.dart';
+import 'package:hapaprueba/User/bloc/bloc_user.dart';
 import 'Anunciar.dart';
 import 'About.dart';
 import '../../../User/ui/screens/MiembroHapa.dart';
@@ -58,7 +60,12 @@ class SideMenu extends StatelessWidget{
               trailing: new Icon(Icons.send),
               onTap: (){
                 Navigator.of(context).pop();
-                Navigator.of(context).push(new MaterialPageRoute(builder: (BuildContext context)=> new Anunciar()));
+                Navigator.of(context).push(new MaterialPageRoute(builder: (BuildContext context){
+                  return BlocProvider<UserBloc>(
+                      bloc: UserBloc(),
+                      child:new Anunciar()
+                  );
+                }));
               },
             ),
             new ListTile(

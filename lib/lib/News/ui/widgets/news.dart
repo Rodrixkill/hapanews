@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:hapaprueba/News/model/newsModel.dart';
 import 'package:hapaprueba/News/ui/screens/NewsPage.dart';
 
 class News extends StatelessWidget {
 
-  String description;
-  String img;
-  String titulo;
-  News(this.img,this.titulo, this.description);
+
+  NewsModel newsModel;
+  News(this.newsModel);
   @override
   Widget build(BuildContext context) {
     final photo = Container(
@@ -15,7 +15,7 @@ class News extends StatelessWidget {
         decoration: BoxDecoration(
           image: DecorationImage(
               fit: BoxFit.fill,
-              image: AssetImage(img)
+              image: NetworkImage(newsModel.photoURL)
           ),
         )
     );
@@ -37,7 +37,7 @@ class News extends StatelessWidget {
     );
     final title = new Container(
       child: Text(
-        titulo,
+        newsModel.title,
         style: TextStyle(
           fontFamily: "Lato",
           fontSize: 25.0,
@@ -54,13 +54,14 @@ class News extends StatelessWidget {
     );
 
     final descriptionField = Container(
+      height: 92,
       margin: new EdgeInsets.only(
         top: 5.0,
         right: 20.0,
         left: 10.0,
       ),
       child: new Text(
-        description,
+        newsModel.content,
         style: const TextStyle(
             fontSize: 13.0,
             fontWeight: FontWeight.bold,
@@ -76,7 +77,7 @@ class News extends StatelessWidget {
         // Cuando el hijo reciba un tap, muestra un snackbar
         onTap: () {
           Navigator.of(context).pop();
-          Navigator.of(context).push(new MaterialPageRoute(builder: (BuildContext context)=> new NewsPage(img, titulo)));
+          Navigator.of(context).push(new MaterialPageRoute(builder: (BuildContext context)=> new NewsPage(newsModel)));
     },
       child: Column(
       mainAxisAlignment: MainAxisAlignment.start,

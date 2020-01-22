@@ -12,7 +12,7 @@ class TopBar extends StatelessWidget{
       actions: <Widget>[
         Padding(
           padding: const EdgeInsets.only(right: 12.0),
-          child: Icon(Icons.send),
+
         )
       ],
     );

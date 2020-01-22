@@ -9,10 +9,10 @@ class User{
 
   User({
     Key key,
-    @required this.email,
-    @required this.photoURL,
     this.uid,
     this.name,
+    @required this.email,
+    @required this.photoURL,
     this.description
 
 });

@@ -1,6 +1,9 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:generic_bloc_provider/generic_bloc_provider.dart';
 import 'package:hapaprueba/News/ui/screens/SideMenu.dart';
 import 'package:hapaprueba/News/ui/widgets/newsList.dart';
+import 'package:hapaprueba/User/bloc/bloc_user.dart';
 
 class HapaHome extends StatelessWidget {
   final topBar = new AppBar(
@@ -12,7 +15,7 @@ class HapaHome extends StatelessWidget {
     actions: <Widget>[
       Padding(
         padding: const EdgeInsets.only(right: 12.0),
-        child: Icon(Icons.send),
+
       )
     ],
   );
@@ -21,14 +24,25 @@ class HapaHome extends StatelessWidget {
     return new Scaffold(
         appBar: topBar,
         drawer: new SideMenu(),
-        body: Stack(
-          children: <Widget>[
-            ListView(
-              children: <Widget>[
-                NewsList(),
-              ],
-            ),
-          ],
-        ));
+        body: CupertinoTabView(
+          builder: (BuildContext context) {
+            return BlocProvider<UserBloc>(
+              bloc: UserBloc(),
+              child:  ListView(
+                children: <Widget>[
+                  NewsList(),
+                ],
+              ),
+            );
+          },
+        )
+
+
+
+
+
+
+
+    );
   }
 }
