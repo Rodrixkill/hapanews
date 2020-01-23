@@ -11,7 +11,7 @@ class CloudFirestoreAPI {
 
   final Firestore _db = Firestore.instance;
 
-  void updateUserData(User user) async{
+  /*void updateUserData(User user) async{
     DocumentReference ref = _db.collection(USERS).document(user.uid);
     return ref.setData({
       'uid': user.uid,
@@ -23,7 +23,7 @@ class CloudFirestoreAPI {
 
     }, merge: true);
   }
-
+*/
   List<News> buildNews(List<DocumentSnapshot> newsListSnapshot){
     List<News> newsList = List<News>();
     newsListSnapshot.forEach((n) {

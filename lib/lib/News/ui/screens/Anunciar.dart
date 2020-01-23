@@ -1,9 +1,11 @@
 import 'dart:developer';
 import 'dart:io';
 import 'dart:async';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:generic_bloc_provider/generic_bloc_provider.dart';
 import 'package:hapaprueba/User/bloc/bloc_user.dart';
+import 'package:hapaprueba/User/ui/widgets/circle_button.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:flutter/src/widgets/basic.dart';
 import 'package:flutter/src/widgets/container.dart';
@@ -20,7 +22,13 @@ import 'package:rflutter_alert/rflutter_alert.dart';
 
 
 String emailUser;
+final Firestore _db = Firestore.instance;
+final FirebaseDatabase database = FirebaseDatabase.instance;
+CollectionReference ref = _db.collection("users");
+
+bool esUsuarioPermitido;
 class Anunciar extends StatelessWidget {
+
   UserBloc userBloc;
 
   final topBar = new AppBar(
@@ -70,10 +78,50 @@ Widget showAnunciarData(AsyncSnapshot snapshot) {
       ),
     );
   } else {
-    emailUser = snapshot.data.email;
-    return new ImageCapture();
+      ref.where("correo", isEqualTo: snapshot.data.email).snapshots().listen(
+      (data) => {
+        if(data.documents.isEmpty){
+          esUsuarioPermitido = false
+        }else{
+          esUsuarioPermitido = true
+        }
+      }
+  );
+      if(esUsuarioPermitido){
+        return new ImageCapture();
+      }else{
+        return new Solicitud();
+      }
+
+
+
   };
 }
+
+
+
+class Solicitud extends StatelessWidget {
+
+
+  @override
+  Widget build(BuildContext context) {
+    // TODO: implement build
+    return Column(
+      children: <Widget>[
+        Text(
+          "Usted no esta autorizado para publicar noticias, si desea contribuir con noticias porfavor haga click en el siguiente boton"
+        ),
+        CircleButton(text: "Solicitar Ser Miembro", onPressed: () {
+
+        }, width: 300.0, height: 50.0)
+      ],
+    );
+
+     ;
+  }
+
+}
+
 class ImageCapture extends StatefulWidget {
   ImageCapture({Key key}) : super(key: key);
 

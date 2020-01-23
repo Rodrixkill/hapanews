@@ -6,7 +6,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 class CloudFirestoreRepository{
   final _cloudFirestoreAPI = CloudFirestoreAPI();
 
-  void updateUserDataFirestore(User user) => _cloudFirestoreAPI.updateUserData(user);
+  //void updateUserDataFirestore(User user) => _cloudFirestoreAPI.updateUserData(user);
   List<News> buildNews(List<DocumentSnapshot> newsListSnapshot)=> _cloudFirestoreAPI.buildNews(newsListSnapshot);
 
 

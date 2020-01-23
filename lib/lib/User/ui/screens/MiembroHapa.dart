@@ -93,12 +93,12 @@ class _MiembroHapa extends State<MiembroHapa> {
       onPressed: () {
         userBloc.signOut();
         userBloc.signIn().then((FirebaseUser user) {
-          userBloc.updateUserData(User(
+          /*userBloc.updateUserData(User(
             uid: user.uid,
             name: user.displayName,
             email: user.email,
             photoURL: user.photoUrl,
-          ));
+          ));*/
         });
       },
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(40)),
