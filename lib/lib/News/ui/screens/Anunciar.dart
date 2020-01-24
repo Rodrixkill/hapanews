@@ -26,7 +26,9 @@ final Firestore _db = Firestore.instance;
 final FirebaseDatabase database = FirebaseDatabase.instance;
 CollectionReference ref = _db.collection("users");
 
-bool esUsuarioPermitido;
+AsyncSnapshot snapshotUser;
+
+int esUsuarioPermitido;
 class Anunciar extends StatelessWidget {
 
   UserBloc userBloc;
@@ -81,15 +83,16 @@ Widget showAnunciarData(AsyncSnapshot snapshot) {
       ref.where("correo", isEqualTo: snapshot.data.email).snapshots().listen(
       (data) => {
         if(data.documents.isEmpty){
-          esUsuarioPermitido = false
+          esUsuarioPermitido = 0
         }else{
-          esUsuarioPermitido = true
+          esUsuarioPermitido = 1
         }
       }
   );
-      if(esUsuarioPermitido){
+      if(esUsuarioPermitido == 1){
         return new ImageCapture();
       }else{
+        snapshotUser = snapshot;
         return new Solicitud();
       }
 
@@ -102,7 +105,6 @@ Widget showAnunciarData(AsyncSnapshot snapshot) {
 
 class Solicitud extends StatelessWidget {
 
-
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
@@ -112,12 +114,30 @@ class Solicitud extends StatelessWidget {
           "Usted no esta autorizado para publicar noticias, si desea contribuir con noticias porfavor haga click en el siguiente boton"
         ),
         CircleButton(text: "Solicitar Ser Miembro", onPressed: () {
-
+          final DBref = FirebaseDatabase.instance.reference().child("pendingUsers").push().set({
+            "correo": snapshotUser.data.email,
+          });
+          solicitudAlert(context);
         }, width: 300.0, height: 50.0)
       ],
     );
 
      ;
+  }
+
+  Future<Alert> solicitudAlert(BuildContext context){
+    Alert(context: context,title: 'Hapa Noticias',content: Text('  Su solicitud fue enviada para su revisión'),buttons: [
+      DialogButton(
+        child: Text(
+          "Cerrar",
+          style: TextStyle(color: Colors.white, fontSize: 20),
+        ),
+        onPressed: () => Navigator.pop(context),
+        width: 120,
+        color: Color.fromRGBO(230, 153, 0,1) ,
+      )
+    ]).show();
+
   }
 
 }
